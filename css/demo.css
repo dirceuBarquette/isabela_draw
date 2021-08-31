@@ -1,0 +1,55 @@
+#wrapper {
+    margin:0 auto;
+    width:765px;
+}
+h1 {
+    
+}
+#mainmenu {
+    float:left;
+    border:1px solid black;
+    background:#0000FF;
+    width:80px;
+    height:295px;
+    padding:2px;
+}
+#desktop {
+    float:left;
+    width:550px;
+    border:1px solid black;
+    height:300px;
+}
+#area1{
+    width:100%;
+    float:left;
+    height:300px;
+}
+#area2 {
+    float:left;
+    width:64%;
+    height:295px;
+    overflow: auto;
+}
+#area2 li {
+    font-family: arial,helvetica,clean,sans-serif;
+    font-size: 12px;
+}
+#footer {
+    font-family: arial,helvetica,clean,sans-serif;
+    font-size: 10px;
+    text-align:center;
+    clear:both;
+    width:630px;
+    float:left;
+}
+.main_menu_icon {
+    float:left;
+}
+.cw {
+    width:100%;
+    margin: 2px 0 0 0;
+}
+li p {
+    text-align: justify;
+    margin:5px;
+}

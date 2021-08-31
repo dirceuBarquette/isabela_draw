@@ -1,0 +1,32 @@
+.isabela_draw_cel {
+    float:left;
+}
+.isabela_draw_board {
+    float:left;
+}
+.isabela_draw_wrapper {
+    clear:both;
+}
+.isabela_draw_add_border {
+    border:1px solid red;
+}
+.isabela_draw_wrapper {
+    /*width:180px;
+    height:160px;*/
+    /*background-color:#C7C7C7;*/
+    overflow:auto;
+}
+.selected_to_draw_line {
+    /*background-color: #cae0c5;*/
+    background-image: url(../imgs/isabela_draw_selected.png);
+    z-index:auto;
+}
+#mainmenu img {
+    margin:0 2px 2px 0;
+}
+#colorSelector {
+background:transparent url(../images/select.png) repeat scroll 0 0;
+height:32px;
+position:relative;
+width:32px;
+}

@@ -1,0 +1,101 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+<title>ISABELA DRAW - drawing on the web</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="drawing on the web with jQuery, CSS and DOM" />
+<meta name="keywords" content="Open Source, Development, Developers, jQuery, DOM, CSS, Drawing" />
+<link rel="stylesheet" type="text/css" media="screen" href="./css/demo.css" />
+<link rel="stylesheet" media="screen" type="text/css" href="./js/colorpicker/css/colorpicker.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="./css/isabela_draw.css" />
+<script type="text/javascript" src="./js/jquery-1.2.6.js"></script>
+<script type="text/javascript" src="./js/colorpicker/js/colorpicker.js"></script>
+<script type="text/javascript" src="./js/jquery.isabela_draw.js"></script>
+<script>
+$(document).ready(function(){
+    $().isabela_draw({local:'#board'});
+    
+    $('<img />').attr({id:'isabela_draw_new_block',src:"./imgs/isabela_draw_new_block.png",alt:"new block",title:'new block'})
+        .bind('click',function(){
+            $().isabela_draw.new_set({whattodoo:'new_block'});
+    }).appendTo('#mainmenu');
+    $('<div>CP</div>').attr({id:'ColorPicker',title:'ColorPicker'})
+    .css({background:"#C7C7C7",width:'32px',height:'32px'})
+    .addClass('isabela_draw_color_pencil')
+    .ColorPicker({
+        color: '#0000FF',
+        onShow: function (colpkr) {
+            $(colpkr).fadeIn(500);
+            return false;
+        },
+        onHide: function (colpkr) {
+            $(colpkr).fadeOut(500);
+            return false;
+        },
+        onChange: function (hsb, hex, rgb) {
+            $('#ColorPicker').css('backgroundColor', '#' + hex);
+            $().isabela_draw.new_set({color:'#'+hex});
+        }
+    })
+    .appendTo('#mainmenu');
+    var brush_length = 1;
+    $('<div>.</div>').attr({id:'isabela_draw_brush'})
+        .css({background:"#C7C7C7",width:'32px',height:'32px',border:'1px solid black','text-align':'center'})
+        .bind('click',function(){
+            var b_l = brush_length > 9 ? 1 : brush_length++;
+            $().isabela_draw.new_set({brush:{length:b_l,unit:'px'}});
+    }).appendTo('#mainmenu');
+    $('<img />').attr({id:'isabela_draw_pencil',src:"./imgs/isabela_draw_pencil2.png",alt:"pencil",title:'draw with pencil'})
+        .bind('click',function(){
+            $().isabela_draw.new_set({whattodoo:'pencil_drawing'});
+    }).appendTo('#mainmenu');
+    $('<img />').attr({id:'isabela_draw_line',src:"./imgs/isabela_draw_line.png",alt:"line",title:'draw a line'})
+        .bind('click',function(){
+            $().isabela_draw.new_set({whattodoo:'isabela_draw_line'});
+    }).appendTo('#mainmenu');
+    $('<img />').attr({id:'isabela_draw_erase',src:"./imgs/isabela_draw_erase2.png",alt:"erase",title:'erase'})
+        .bind('click',function(){
+            $().isabela_draw.new_set({whattodoo:'isabela_draw_erase'});
+    }).appendTo('#mainmenu');
+    $('<img />').attr({id:'isabela_draw_circle',src:"./imgs/isabela_draw_circle.png",alt:"circle",title:'circle'})
+        .bind('click',function(){
+            $().isabela_draw.new_set({whattodoo:'isabela_draw_circle'});
+    }).appendTo('#mainmenu');
+    $('<img />')
+    .attr({id:'isabela_draw_loading',src:'./imgs/loading.gif',alt:'loading'})
+    //$('<div></div>')
+    //.attr({id:'isabela_draw_loading'})
+    .css({display:'none'})
+    .appendTo('#mainmenu');
+});
+</script>
+</head>
+<body>
+    <div id="wrapper">
+    <h1>Isabela Draw - drawing on the web</h1>
+    <h2>Isabela Draw - A <a href="http://jquery.com">jQuery</a> library to draw on the web</h2>
+    <div id="mainmenu"></div>
+    <div id="desktop">
+        <div id="area1"><div id="board"></div><!--<a href="https://sourceforge.net/project/showfiles.php?group_id=246639">download</a> the latest version</div>-->
+        <!--<div id="area2">
+            <h3>You can draw now!!!</h3>
+            <p>Instructions</p>
+            <ul>
+                <li><p>click mouse left button on "new block" icon (the very top icon)</p></li>
+                <li><p>click mouse left button at any place of the big gray area. In few seconds a white area will appear inside this gray area.</p></li>
+                <li><p>click mouse left button on "CP" (Color Picker) icon to choose the color.</p></li>
+                <li><p>You have to click on blue area to deactivate the color canvas</p></li>
+                <li><p>click mouse left button on "pencil" icon (the very botton icon) to choose the action (draw with pencil)</p></li>
+                <li><p>then, click mouse left button at any place of white area to start drawing. To stop drawing, just left click again.
+                You can change the color at any time (stopping before...) just clicking "CP" button again and choosing another color.</p></li>
+            </ul>
+            <h4>NOW YOU ARE READY TO DRAW ON WEB. HAVE FUN!!!!!!!</h4>
+        </div>-->
+    </div>
+    <div id="footer">
+        <p class="cw">Copyright (C) 2008  Dirceu Barquette</p>
+        <div><a href="http://sourceforge.net"><img src="http://sflogo.sourceforge.net/sflogo.php?group_id=246639&amp;type=2" width="125" height="37" border="0" alt="SourceForge.net Logo" /></a></div>
+    </div>
+    </div>
+</body>
+</html>
